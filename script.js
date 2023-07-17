@@ -19,11 +19,32 @@ generateBtn.addEventListener("click", writePassword);
 //Contains prompts for the window. 
 
 function generatePassword() {
-  var = numberofCharacters = prompt("How many characters would you like your password to contain?");
-  var = charactersErrorSmall = prompt("Your password must contain at least 8 characters");
-  var = charactersErrorLarge = prompt("Your password must be no moer than 128 characters");
-  var = specialCharacters = prompt("Click OK to confirm including special characters.");
-  var = numbericCharacters = prompt("Click OK to confirm including number characters");
-  var = lowercaseCharacters = prompt("Click OK to confirm containing lowercase characters.");
-  var = uppercaseCharacters = prompt("Click OK to confirm containing uppercase characters.");
 }
+
+var password = prompt("How many characters would you like your password to contain?")
+var number = parseInt(password);
+
+function createRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+
+console.log(createRandomLower());
+
+function createRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+console.log(createRandomUpper());
+
+function createRandomNumber() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+
+console.log(createRandomNumber());
+
+function createRandomSymbols() {
+  const symbols = '!@#$%^&*()?><:"}{_+,./;[]=-'
+  return symbols[Math.floor(Math.random() * symbols.length)];
+}
+
+console.log(createRandomSymbols());

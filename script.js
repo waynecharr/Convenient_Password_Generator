@@ -21,6 +21,16 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
 }
 
+var lenghtCharacters = prompt("How many characters would you like your password to contain?");
+var specialCharacters = window.confirm("Click OK to confirm including special characters.");
+var numbericCharacters = window.confirm("Click OK to confirm including number characters");
+var lowercaseCharacters = window.confirm("Click OK to confirm containing lowercase characters.");
+var uppercaseCharacters = window.confirm("Click OK to confirm containing uppercase characters.");
+
+
+function generatePassword() {
+}
+
 var password = prompt("How many characters would you like your password to contain?")
 var number = parseInt(password);
 
@@ -29,7 +39,6 @@ function createRandomLower() {
 }
 
 console.log(createRandomLower());
-
 function createRandomUpper() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }

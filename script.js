@@ -16,27 +16,16 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// generates the Lowercase letter(s)
-function createRandomLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
 
-// generates the Uppercase letter(s)
-function createRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
 
-// Generates the random number(s)
-function createRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
 
-// Generates the random symbol(s)
+var numbersRandom = "1234567890"
+var upperLetters = "ABCDEFGHIJKLMOPQRUSTUVWXYZ"
+var lowerLetters = "abcdefghijklmnopqrstuvwxyz"
+var symbolsRandom = "!@#$%^&*()?><:=-"
 
-function createRandomSymbols() {
-  const symbols = '!@#$%^&*()?><:"}{_+./;[]=-'
-  return symbols[Math.floor(Math.random() * symbols.length)];
-}
+var characterBank = ""
+
 
 function generatePassword() {
   function setLength() {
@@ -61,26 +50,57 @@ function generatePassword() {
   var lowercase = window.confirm("Click OK to confirm containing lowercase characters.");
   var uppercase = window.confirm("Click OK to confirm containing uppercase characters.");
 
-  const password = (length, symbols, numeric, lowercase, uppercase) =>{
-    const promptResults = [
-      ...(symbols ? createRandomSymbols : []),
-      ...(numeric ? createRandomNumber : []),
-      ...(lowercase ? createRandomLower : []),
-      ...(uppercase ? createRandomUpper : [])
-    ];
-    console.log(promptResults);
+  
+
+  console.log("length",length);
+  console.log("symbols",symbols);
+  console.log("numeric",numeric);
+  console.log("lowercase",lowercase);
+  console.log("uppercase",uppercase);
+
+
+  if (symbols) {
+    console.log("before", characterBank);
+    characterBank = characterBank + symbolsRandom; //different version
+    console.log("after", characterBank);
   }
+
+  if (numeric) {
+    console.log("before", characterBank);
+    characterBank += numbersRandom; //different version
+    console.log("after", characterBank);
+  }
+
+  if (lowercase) {
+    console.log("before", characterBank);
+    characterBank = characterBank + lowerLetters;
+    console.log("after", characterBank);
+  }
+
+  if (uppercase) {
+    console.log("before", characterBank);
+    characterBank = characterBank + upperLetters;
+    console.log("after", characterBank);
+  }
+
+  var password = "";
+
+  for (let i = 0; i < length; i++) { //i stands for index 
+    var random = Math.floor(Math.random() * characterBank.length)
+    //console.log(random);
+    //console.log(characterBank[random]);
+
+    password = password + characterBank[random];
+    console.log("password", password);
+
+  }
+
+  return password
+
+
+
 };
 
 
 
 
-const password = (length, symbols, numeric, lowercase, uppercase) =>{
-  const promptResults = [
-    ...(symbols ? createRandomSymbols : []),
-    ...(numeric ? createRandomNumber : []),
-    ...(lowercase ? createRandomLower : []),
-    ...(uppercase ? createRandomUpper : [])
-  ];
-  console.log(promptResults);
-}

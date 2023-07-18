@@ -10,6 +10,7 @@ This project is for my third week module. The index.html, the css.stylesheet, an
 "Initial Commit" just included the initial update with not much to it. Some variables for prompts I ended up not using. 
 "Functions and Length" includes the mock ups for the functions (which I don't think I'll change), and the mock up which decides length. 
 "Added prompts" - added the series of prompts. Will put in a translate for length to translate to a number instead of a value. 
+"Logic for prompts defined" - defines the logic for the prompts. Brings back errors when too short, long, or not a number. 
 
 # Resources
 

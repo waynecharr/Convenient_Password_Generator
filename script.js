@@ -21,11 +21,25 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
 }
 
-var lenghtCharacters = prompt("How many characters would you like your password to contain?");
+function validateInput() {
+  var lengthCharacters = prompt("How many characters would you like your password to contain?");
+  if (isNaN(lengthCharacters)) {
+    alert("Your value must be a valid number between 8 and 128");
+    return validateInput();
+  } else if (lengthCharacters < 8) {
+    alert("Your password must contain at least 8 characters");
+    return validateInput();
+  } else if (lengthcharacters > 128) {
+    alert("Your password must be no moer than 128 characters");
+    return validateInput();
+  }
+}
 var specialCharacters = window.confirm("Click OK to confirm including special characters.");
 var numbericCharacters = window.confirm("Click OK to confirm including number characters");
 var lowercaseCharacters = window.confirm("Click OK to confirm containing lowercase characters.");
 var uppercaseCharacters = window.confirm("Click OK to confirm containing uppercase characters.");
+
+var length = parseInt(lengthCharacters);
 
 
 function generatePassword() {
